@@ -24,10 +24,6 @@
   '';
 
   # Environment variables to keep things local
-  env = {
-    XDG_DATA_HOME = "./.data";
-    XDG_CONFIG_HOME = "./.config";
-  };
 
   # Helper to generate a dummy user map if it doesn't exist
   scripts.gen-test-data.exec = ''

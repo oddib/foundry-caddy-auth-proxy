@@ -9,6 +9,7 @@
   packages = [
     pkgs.caddy
     pkgs.xcaddy
+    pkgs.wl-clipboard
   ];
 
   # https://devenv.sh/languages/
@@ -17,4 +18,32 @@
   };
 
   # See full reference at https://devenv.sh/reference/options/
+  # Build the custom caddy with your local module
+  processes.foundry-proxy.exec = ''
+    xcaddy run 
+  '';
+
+  # Environment variables to keep things local
+  env = {
+    XDG_DATA_HOME = "./.data";
+    XDG_CONFIG_HOME = "./.config";
+  };
+
+  # Helper to generate a dummy user map if it doesn't exist
+  scripts.gen-test-data.exec = ''
+    if [ ! -f user_map.json ]; then
+      cp test/user.json user.json
+      echo "Copied user_map.json"
+    fi
+    if [ ! -f Caddyfile ]; then
+      cp test/user.json user.json
+      echo "Copied Caddyfile"
+    fi
+
+  '';
+  enterShell = ''
+    gen-test-data
+    echo "--- Foundry Auth Module Dev Environment ---"
+    echo "Run 'devenv up' to start the proxy on port 8080"
+  '';
 }

@@ -1,0 +1,13 @@
+{
+	admin localhost:2040 #usable on server with existing caddy instances
+	http_port 8080
+
+	order foundry_proxy before reverse_proxy
+}
+
+:8080 {
+	# Syntax: foundry_proxy <backend_address> <path_to_user_json>
+	foundry_proxy localhost:30000 "user.json" {
+		header_auth_name X-Forwarded-User
+	}
+}

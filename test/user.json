@@ -1,0 +1,25 @@
+{
+  "users": {
+    "gm@example.com": {
+      "worlds": {
+        "fun-campaign": {
+          "userid": "sofdoiudifo",
+          "password": "PASSWORD123",
+          "known": true
+        }
+      },
+      "admin": true
+    },
+    "player1@example.com": {
+      "worlds": {
+        "fun-campaign": {
+          "userid": "sofdoiudifo",
+          "password": "PASSWORD123",
+          "known": true
+        }
+      },
+      "admin": false
+    }
+  },
+  "adminkey": "LONG_RANDOM_PASSWORD"
+}

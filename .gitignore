@@ -8,3 +8,9 @@ devenv.local.yaml
 
 # pre-commit
 .pre-commit-config.yaml
+# caddy
+caddy
+.config
+.data
+/user.json
+/Caddyfile

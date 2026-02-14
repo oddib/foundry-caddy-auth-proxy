@@ -1,4 +1,4 @@
-module foundrycaddyauthproxy
+module github.com/oddib/foundry-caddy-auth-proxy
 
 go 1.25.5
 
